@@ -1,0 +1,13 @@
+version: "3"
+services:
+  data-aggregator:
+    container_name: data-aggregator
+    user: root
+    build:
+      context: .
+    image: fluent/fluentd:latest
+    ports:
+      - 24225:24225
+    volumes:
+    - ./Configuration:/fluentd/etc/
+    - ./output/:/tmp/output/

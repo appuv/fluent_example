@@ -1,0 +1,13 @@
+version: "3"
+services:
+  data-forwarder:
+    container_name: data-forwarder
+    user: root
+    build:
+      context: .
+    image: fluent/fluentd:latest
+    ports:
+      - 24224:24224
+    volumes:
+    - ./Configuration:/fluentd/etc/
+    - ./input/:/fluentd/log/files/
